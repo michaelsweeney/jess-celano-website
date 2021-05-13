@@ -2,7 +2,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Container, Grid, Drawer, Button, TextField } from "@material-ui/core";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -65,9 +71,13 @@ const App = () => {
 
 const SidebarButton = (props) => {
   const { route, title } = props;
+
+  const location = useLocation();
+  const color = location.pathname === route ? "primary" : "default";
+
   return (
     <Link to={route}>
-      <Button color="primary">{title}</Button>
+      <Button color={color}>{title}</Button>
     </Link>
   );
 };
