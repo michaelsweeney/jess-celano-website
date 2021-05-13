@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import { Container, Grid, Drawer, Button, TextField } from "@material-ui/core";
 
-function App() {
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [textContent, setTextContent] = useState("");
+  const toggleOpen = () => setIsOpen(!isOpen);
+
+  const handleSubmit = () => {
+    alert("you have submitted!");
+    setTextContent("");
+  };
+
+  const handleTextFieldChange = (e) => {
+    setTextContent(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Editfff <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Container>
+        <Drawer
+          anchor="left"
+          variant="persistent"
+          open={isOpen}
+          onClose={toggleOpen}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <SidebarButton route="/" title="About" />
+          <SidebarButton route="/resume" title="Resume" />
+          <SidebarButton route="/portfolio" title="Portfolio" />
+          <SidebarButton route="/contact" title="Contact" />
+        </Drawer>
+
+        <Button variant="outlined" color="primary" onClick={toggleOpen}>
+          click to open
+        </Button>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              Here's the Intro
+            </Route>
+            <Route path="/resume">
+              <div>Here's My Resume!</div>
+            </Route>
+            <Route path="/portfolio">Here's my Portfolio Stuff</Route>
+            <Route path="/contact">
+              Contact Me!
+              <TextField
+                value={textContent}
+                onChange={handleTextFieldChange}
+                multiline
+                rows="4"
+                variant="outlined"
+              ></TextField>
+              <Button onClick={handleSubmit}>Contact Me!</Button>
+            </Route>
+          </Switch>
+        </div>
+      </Container>
+    </Router>
   );
-}
+};
+
+const SidebarButton = (props) => {
+  const { route, title } = props;
+  return (
+    <Link to={route}>
+      <Button color="primary">{title}</Button>
+    </Link>
+  );
+};
 
 export default App;
