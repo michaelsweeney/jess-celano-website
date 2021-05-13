@@ -16,13 +16,14 @@ const Portfolio = (props) => {
     <div>
       Contact Me!
       <TextField
+        label="type a message to say hi!"
         value={textContent}
         onChange={handleTextFieldChange}
         multiline
         rows="4"
         variant="outlined"
       ></TextField>
-      <Button onClick={handleSubmit}>Contact Me!</Button>
+      <Button onClick={handleSubmit}>SEND MESSAGE</Button>
     </div>
   );
 };
