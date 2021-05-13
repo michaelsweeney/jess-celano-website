@@ -14,6 +14,7 @@ import Portfolio from "./components/portfolio";
 import About from "./components/about";
 import Resume from "./components/resume";
 import Contact from "./components/contact";
+import RouteButton from "./components/routebutton";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -28,10 +29,10 @@ const App = () => {
           open={isOpen}
           onClose={toggleOpen}
         >
-          <SidebarButton route="/" title="About" />
-          <SidebarButton route="/resume" title="Resume" />
-          <SidebarButton route="/portfolio" title="Portfolio" />
-          <SidebarButton route="/contact" title="Contact" />
+          <RouteButton route="/" title="About" />
+          <RouteButton route="/resume" title="Resume" />
+          <RouteButton route="/portfolio" title="Portfolio" />
+          <RouteButton route="/contact" title="Contact" />
         </Drawer>
 
         <Button variant="outlined" color="primary" onClick={toggleOpen}>
@@ -55,19 +56,6 @@ const App = () => {
         </div>
       </Container>
     </Router>
-  );
-};
-
-const SidebarButton = (props) => {
-  const { route, title } = props;
-
-  const location = useLocation();
-  const color = location.pathname === route ? "primary" : "default";
-
-  return (
-    <Link to={route}>
-      <Button color={color}>{title}</Button>
-    </Link>
   );
 };
 
