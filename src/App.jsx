@@ -10,19 +10,14 @@ import {
   useLocation,
 } from "react-router-dom";
 
+import Portfolio from "./components/portfolio";
+import About from "./components/about";
+import Resume from "./components/resume";
+import Contact from "./components/contact";
+
 const App = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [textContent, setTextContent] = useState("");
   const toggleOpen = () => setIsOpen(!isOpen);
-
-  const handleSubmit = () => {
-    alert("you have submitted!");
-    setTextContent("");
-  };
-
-  const handleTextFieldChange = (e) => {
-    setTextContent(e.target.value);
-  };
 
   return (
     <Router>
@@ -45,22 +40,16 @@ const App = () => {
         <div>
           <Switch>
             <Route exact path="/">
-              Here's the Intro
+              <About />
             </Route>
             <Route path="/resume">
-              <div>Here's My Resume!</div>
+              <Resume />
             </Route>
-            <Route path="/portfolio">Here's my Portfolio Stuff</Route>
+            <Route path="/portfolio">
+              <Portfolio />
+            </Route>
             <Route path="/contact">
-              Contact Me!
-              <TextField
-                value={textContent}
-                onChange={handleTextFieldChange}
-                multiline
-                rows="4"
-                variant="outlined"
-              ></TextField>
-              <Button onClick={handleSubmit}>Contact Me!</Button>
+              <Contact />
             </Route>
           </Switch>
         </div>
