@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { TextField, Button } from "@material-ui/core";
 
 const Portfolio = (props) => {
   const [textContent, setTextContent] = useState("");
@@ -15,15 +14,8 @@ const Portfolio = (props) => {
   return (
     <div>
       Contact Me!
-      <TextField
-        label="type a message to say hi!"
-        value={textContent}
-        onChange={handleTextFieldChange}
-        multiline
-        rows="4"
-        variant="outlined"
-      ></TextField>
-      <Button onClick={handleSubmit}>SEND MESSAGE</Button>
+      <div>{textContent}</div>
+      <button onClick={handleSubmit}>SEND MESSAGE</button>
     </div>
   );
 };
