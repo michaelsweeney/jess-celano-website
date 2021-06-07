@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import { Typography } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 const Portfolio = (props) => {
   const [textContent, setTextContent] = useState("");
   const handleSubmit = () => {
@@ -12,11 +13,13 @@ const Portfolio = (props) => {
   };
 
   return (
-    <div>
-      Contact Me!
-      <div>{textContent}</div>
-      <button onClick={handleSubmit}>SEND MESSAGE</button>
-    </div>
+    <>
+      <Typography variant="h2">Contact Me!</Typography>
+      <div>
+        <div>{textContent}</div>
+        <Button onClick={handleSubmit}>Send Message</Button>
+      </div>
+    </>
   );
 };
 
