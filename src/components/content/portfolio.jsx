@@ -20,15 +20,14 @@ const useStyles = makeStyles({
 
 const Portfolio = (props) => {
   const classes = useStyles();
+  const imageWidth = "80%";
   return (
     <div className={classes.root}>
-      <Typography variant="h2">Portfolio</Typography>
-      <Typography paragraph>Here's my portfolio</Typography>
       <div className={classes.imageContainer}>
-        <ImageCard src={reiimg} width={500} title="rei"></ImageCard>
-        <ImageCard src={zeelimg} width={500} title="rei"></ImageCard>
-        <ImageCard src={etsyimg} width={500} title="rei"></ImageCard>
-        <ImageCard src={relicimg} width={500} title="rei"></ImageCard>
+        <ImageCard src={reiimg} width={imageWidth} title="rei"></ImageCard>
+        <ImageCard src={zeelimg} width={imageWidth} title="rei"></ImageCard>
+        <ImageCard src={etsyimg} width={imageWidth} title="rei"></ImageCard>
+        <ImageCard src={relicimg} width={imageWidth} title="rei"></ImageCard>
       </div>
     </div>
   );

@@ -9,11 +9,11 @@ const useStyles = makeStyles({
 
 export default function ImageCard(props) {
   const classes = useStyles();
-  const { src, title, width, height } = props;
+  const { src, title, width } = props;
 
   return (
     <div className={classes.root}>
-      <img src={src} alt={title} width={width} height={height}></img>;
+      <img src={src} alt={title} width={width}></img>;
     </div>
   );
 }

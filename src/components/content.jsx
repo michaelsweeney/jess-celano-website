@@ -12,7 +12,6 @@ import { drawerWidth } from "../constants";
 
 const useStyles = makeStyles((theme) => ({
   content: {
-    padding: 35,
     flexGrow: 1,
     marginTop: 54,
     transition: theme.transitions.create("margin", {
@@ -20,6 +19,18 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 25,
+      paddingLeft: 25,
+      paddingRight: 25,
+      paddingBottom: 25,
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 100,
+      paddingLeft: 150,
+      paddingRight: 150,
+      paddingBottom: 75,
+    },
   },
   contentShift: {
     transition: theme.transitions.create("margin", {

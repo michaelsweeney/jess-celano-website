@@ -1,15 +1,8 @@
 import logo from "../img/favicon.svg";
 
 export default function Logo(props) {
-  const { scale } = props;
-
   return (
-    <svg
-      width={`${108 * scale}px`}
-      height={`${125 * scale}px`}
-      viewBox="0 0 108 125"
-      version="1.1"
-    >
+    <svg width={`48px`} height={`55px`} viewBox="0 0 108 125" version="1.1">
       <title>Fill 1</title>
       <g
         id="Page-1"
