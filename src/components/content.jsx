@@ -12,9 +12,9 @@ import { drawerWidth } from "../constants";
 
 const useStyles = makeStyles((theme) => ({
   content: {
+    padding: 35,
     flexGrow: 1,
     marginTop: 54,
-    padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -31,11 +31,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Content = (props) => {
-  const { open } = props;
+  const { open, closeCallback } = props;
   const classes = useStyles();
 
   return (
-    <main
+    <div
+      onClick={closeCallback}
       className={clsx(classes.content, {
         [classes.contentShift]: open,
       })}
@@ -54,7 +55,7 @@ const Content = (props) => {
           <Contact />
         </Route>
       </Switch>
-    </main>
+    </div>
   );
 };
 

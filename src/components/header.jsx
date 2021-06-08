@@ -7,9 +7,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import useWindowSize from "./usewindowsize";
 import { breakpoint } from "../constants";
 import { routes } from "../routes";
+import Logo from "./logo";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   appBar: {
+    display: "inline-block",
     backgroundColor: "white",
     color: "black",
     boxShadow: "none",
@@ -28,14 +31,29 @@ const useStyles = makeStyles({
     display: "none",
   },
   buttonGroup: {
+    margin: 20,
+    display: "inline-block",
+    float: "right",
+  },
+  logoContainer: {
+    margin: 20,
     display: "inline-block",
   },
 });
 
 export default function Header(props) {
+  const { closeCallback } = props;
   const classes = useStyles();
   const location = useLocation();
   const size = useWindowSize();
+  const logoscale = 0.25;
+
+  useEffect(() => {
+    if (size.width > breakpoint) {
+      closeCallback();
+    }
+  }, [size]);
+
   return (
     <AppBar
       className={clsx(
@@ -43,6 +61,9 @@ export default function Header(props) {
         size.width < breakpoint ? classes.hide : ""
       )}
     >
+      <div className={classes.logoContainer}>
+        <Logo scale={logoscale} />
+      </div>
       <div className={classes.buttonGroup}>
         {routes.map((obj, i) => (
           <Link key={i} to={obj.route}>

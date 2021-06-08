@@ -1,7 +1,7 @@
 const routes = [
   {
     route: "/",
-    title: "About",
+    title: "Intro",
   },
   {
     route: "/resume",
@@ -13,7 +13,7 @@ const routes = [
   },
   {
     route: "/contact",
-    title: "Contact",
+    title: "Contact Me",
   },
 ];
 export { routes };
