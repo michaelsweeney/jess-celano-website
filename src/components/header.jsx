@@ -52,7 +52,7 @@ export default function Header(props) {
     if (size.width > breakpoint) {
       closeCallback();
     }
-  }, [size]);
+  }, [size, closeCallback]);
 
   return (
     <AppBar
