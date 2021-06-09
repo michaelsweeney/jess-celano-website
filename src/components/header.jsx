@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarButton: {
     display: "inline-block",
+    borderRadius: 0,
   },
   hide: {
     display: "none",

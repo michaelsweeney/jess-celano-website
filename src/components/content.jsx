@@ -47,7 +47,7 @@ const Content = (props) => {
 
   return (
     <div
-      onClick={closeCallback}
+      // onClick={closeCallback}
       className={clsx(classes.content, {
         [classes.contentShift]: open,
       })}
