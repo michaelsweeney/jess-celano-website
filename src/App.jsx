@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Content from "./components/content";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import MenuButton from "./components/menubutton";
+import useWindowSize from "./components/usewindowsize";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const classes = useStyles();
+  const windowSize = useWindowSize();
+  const theme = useTheme();
 
   const [open, setOpen] = useState(false);
 
@@ -26,6 +30,14 @@ export default function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const breakpoint = theme.breakpoints.values.md;
+  const windowWidth = windowSize.width;
+  useEffect(() => {
+    if (windowWidth > breakpoint) {
+      setOpen(false);
+    }
+  }, [breakpoint, windowWidth]);
 
   return (
     <Router>

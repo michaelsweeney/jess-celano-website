@@ -1,15 +1,11 @@
 import clsx from "clsx";
 import { Link, useLocation } from "react-router-dom";
-import { Button, ButtonGroup, AppBar, useTheme } from "@material-ui/core";
+import { Button, AppBar } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import useWindowSize from "./usewindowsize";
-
-import { breakpoint } from "../constants";
 import { routes } from "../routes";
 import Logo from "./logo";
-import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -52,15 +48,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const { closeCallback } = props;
   const classes = useStyles();
-  const theme = useTheme();
-  const location = useLocation();
-  const size = useWindowSize();
 
-  useEffect(() => {
-    // if (size.width > theme.breakpoints.values["sm"]) {
-    //   closeCallback();
-    // }
-  }, [size, theme, closeCallback]);
+  const location = useLocation();
 
   return (
     <AppBar className={clsx(classes.appBar)}>
