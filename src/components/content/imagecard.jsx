@@ -13,7 +13,7 @@ export default function ImageCard(props) {
 
   return (
     <div className={classes.root}>
-      <img src={src} alt={title} width={width}></img>;
+      <img src={src} alt={title} width={width}></img>
     </div>
   );
 }

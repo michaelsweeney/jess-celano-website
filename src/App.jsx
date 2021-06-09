@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { useTheme } from "@material-ui/core";
+import { useTheme, Container } from "@material-ui/core";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Content from "./components/content";
@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
+  outer: {},
 }));
 
 export default function App() {
@@ -41,12 +42,12 @@ export default function App() {
 
   return (
     <Router>
-      <div className={classes.root}>
+      <Container maxWidth="lg" className={classes.root}>
         <Header closeCallback={handleDrawerClose} />
         <Sidebar open={open} closeCallback={handleDrawerClose} />
         <MenuButton openCallback={handleDrawerOpen} />
         <Content open={open} closeCallback={handleDrawerClose} />
-      </div>
+      </Container>
     </Router>
   );
 }
