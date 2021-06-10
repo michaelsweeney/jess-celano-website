@@ -7,7 +7,7 @@ import Portfolio from "./content/portfolio";
 import About from "./content/about";
 import Resume from "./content/resume";
 import Contact from "./content/contact";
-
+import Secret from "./content/secret";
 import { drawerWidth } from "../constants";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +64,9 @@ const Content = (props) => {
         </Route>
         <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="/secret">
+          <Secret />
         </Route>
       </Switch>
     </div>

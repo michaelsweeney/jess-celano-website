@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  createMuiTheme,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 import { useTheme, Container } from "@material-ui/core";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -9,6 +13,14 @@ import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import MenuButton from "./components/menubutton";
 import useWindowSize from "./components/usewindowsize";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "rgb(0,0,0)",
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
   const windowSize = useWindowSize();
-  const theme = useTheme();
 
   const [open, setOpen] = useState(false);
 
@@ -42,12 +53,14 @@ export default function App() {
 
   return (
     <Router>
-      <Container maxWidth="lg" className={classes.root}>
-        <Header closeCallback={handleDrawerClose} />
-        <Sidebar open={open} closeCallback={handleDrawerClose} />
-        <MenuButton openCallback={handleDrawerOpen} />
-        <Content open={open} closeCallback={handleDrawerClose} />
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Container maxWidth="lg" className={classes.root}>
+          <Header closeCallback={handleDrawerClose} />
+          <Sidebar open={open} closeCallback={handleDrawerClose} />
+          <MenuButton openCallback={handleDrawerOpen} />
+          <Content open={open} closeCallback={handleDrawerClose} />
+        </Container>
+      </ThemeProvider>
     </Router>
   );
 }
