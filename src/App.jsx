@@ -20,8 +20,16 @@ const theme = createMuiTheme({
       main: "rgb(0,0,0)",
     },
   },
+  breakpoints: {
+    values: {
+      lg: 1440,
+      md: 960,
+      sm: 600,
+      xl: 1920,
+      xs: 0,
+    },
+  },
 });
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -32,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
   const windowSize = useWindowSize();
+  console.log(theme);
 
   const [open, setOpen] = useState(false);
 
@@ -43,7 +52,7 @@ export default function App() {
     setOpen(false);
   };
 
-  const breakpoint = theme.breakpoints.values.md;
+  const breakpoint = theme.breakpoints.values.lg;
   const windowWidth = windowSize.width;
   useEffect(() => {
     if (windowWidth > breakpoint) {

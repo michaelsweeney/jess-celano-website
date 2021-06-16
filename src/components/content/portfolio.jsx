@@ -20,14 +20,19 @@ const useStyles = makeStyles({
 
 const Portfolio = (props) => {
   const classes = useStyles();
-  const imageWidth = "80%";
+  const imageWidth = "40%";
   return (
     <div className={classes.root}>
       <div className={classes.imageContainer}>
-        <ImageCard src={reiimg} width={imageWidth} title="rei"></ImageCard>
-        <ImageCard src={zeelimg} width={imageWidth} title="rei"></ImageCard>
-        <ImageCard src={etsyimg} width={imageWidth} title="rei"></ImageCard>
-        <ImageCard src={relicimg} width={imageWidth} title="rei"></ImageCard>
+        <ImageCard
+          src={reiimg}
+          text={"some rei stuff"}
+          width={imageWidth}
+          title="rei"
+        ></ImageCard>
+        <ImageCard src={zeelimg} width={imageWidth} title="zeel"></ImageCard>
+        <ImageCard src={etsyimg} width={imageWidth} title="etsy"></ImageCard>
+        <ImageCard src={relicimg} width={imageWidth} title="relic"></ImageCard>
       </div>
     </div>
   );

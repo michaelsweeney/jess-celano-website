@@ -20,6 +20,10 @@ const useStyles = makeStyles({
     borderRadius: 0,
     marginTop: 15,
   },
+  link: {
+    textDecoration: "inherit",
+    color: "inherit",
+  },
 });
 
 const Portfolio = (props) => {
@@ -41,6 +45,16 @@ const Portfolio = (props) => {
   return (
     <>
       <div>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.inputButton}
+        >
+          <a className={classes.link} href="mailto:jessica-celano@gmail.com?">
+            Email ME
+          </a>
+        </Button>
+
         <div>
           <TextField
             className={clsx(classes.textField, classes.nameField)}
@@ -53,7 +67,6 @@ const Portfolio = (props) => {
             variant="outlined"
           />
         </div>
-
         <div>
           <TextField
             className={clsx(classes.textField, classes.emailField)}

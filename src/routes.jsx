@@ -4,12 +4,12 @@ const routes = [
     title: "Intro",
   },
   {
-    route: "/resume",
-    title: "Resume",
-  },
-  {
     route: "/portfolio",
     title: "Portfolio",
+  },
+  {
+    route: "/resume",
+    title: "Resume",
   },
   {
     route: "/contact",
