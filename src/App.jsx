@@ -52,7 +52,7 @@ export default function App() {
     setOpen(false);
   };
 
-  const breakpoint = theme.breakpoints.values.lg;
+  const breakpoint = theme.breakpoints.values.md;
   const windowWidth = windowSize.width;
   useEffect(() => {
     if (windowWidth > breakpoint) {

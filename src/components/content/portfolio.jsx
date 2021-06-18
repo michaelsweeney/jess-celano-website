@@ -17,22 +17,38 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
 });
+console.log(reiimg);
+const portfoliocontent = [
+  {
+    title: "REI",
+    text: "some rei stuff",
+    src: reiimg,
+  },
+  {
+    title: "ZEEL",
+    text: "zeel is something very cool!",
+    src: zeelimg,
+  },
+  {
+    title: "Etsy",
+    text: "Alex yells at me for shopping Amazon instead of Etsy",
+    src: etsyimg,
+  },
+  {
+    title: "Relic",
+    text: "Not quite sure what to say about this one.",
+    src: relicimg,
+  },
+];
 
 const Portfolio = (props) => {
   const classes = useStyles();
-  const imageWidth = "40%";
   return (
     <div className={classes.root}>
       <div className={classes.imageContainer}>
-        <ImageCard
-          src={reiimg}
-          text={"some rei stuff"}
-          width={imageWidth}
-          title="rei"
-        ></ImageCard>
-        <ImageCard src={zeelimg} width={imageWidth} title="zeel"></ImageCard>
-        <ImageCard src={etsyimg} width={imageWidth} title="etsy"></ImageCard>
-        <ImageCard src={relicimg} width={imageWidth} title="relic"></ImageCard>
+        {portfoliocontent.map((d) => (
+          <ImageCard src={d.src} text={d.text} title={d.title} />
+        ))}
       </div>
     </div>
   );

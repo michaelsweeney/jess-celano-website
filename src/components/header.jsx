@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   appBarActiveRoute: {
     border: "2px solid black",
     borderRadius: 0,
+    fontWeight: "800",
   },
   appBarInactiveRoute: {
     border: "2px solid white",

@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, useLocation } from "react-router-dom";
@@ -43,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   activeRoute: {
     border: "2px solid white",
   },
+  activeText: {
+    fontWeight: "800",
+  },
+  inactiveText: {},
 
   listItem: {
     marginLeft: 10,
@@ -83,7 +88,20 @@ export default function Sidebar(props) {
                   : clsx(classes.inactiveRoute, classes.listItem)
               }
             >
-              <ListItemText primary={obj.title} />
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography
+                    className={
+                      location.pathname === obj.route
+                        ? clsx(classes.activeText)
+                        : clsx(classes.inactiveText)
+                    }
+                  >
+                    {obj.title}
+                  </Typography>
+                }
+              />
             </ListItem>
           </Link>
         ))}
