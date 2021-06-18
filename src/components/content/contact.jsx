@@ -15,10 +15,14 @@ const useStyles = makeStyles({
     },
   },
   inputButton: {
+    boxShadow: "none",
     color: "white",
     backgroundColor: "black",
     borderRadius: 0,
     marginTop: 15,
+    "&:hover": {
+      boxShadow: "none",
+    },
   },
   link: {
     textDecoration: "inherit",
@@ -54,7 +58,7 @@ const Portfolio = (props) => {
             Email ME
           </a>
         </Button>
-
+        {/* 
         <div>
           <TextField
             className={clsx(classes.textField, classes.nameField)}
@@ -100,7 +104,7 @@ const Portfolio = (props) => {
           onClick={handleSubmit}
         >
           Send Message
-        </Button>
+        </Button> */}
       </div>
     </>
   );
