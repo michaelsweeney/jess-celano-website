@@ -17,7 +17,6 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
 });
-console.log(reiimg);
 const portfoliocontent = [
   {
     title: "REI",
@@ -46,8 +45,8 @@ const Portfolio = (props) => {
   return (
     <div className={classes.root}>
       <div className={classes.imageContainer}>
-        {portfoliocontent.map((d) => (
-          <ImageCard src={d.src} text={d.text} title={d.title} />
+        {portfoliocontent.map((d, i) => (
+          <ImageCard key={i} src={d.src} text={d.text} title={d.title} />
         ))}
       </div>
     </div>
